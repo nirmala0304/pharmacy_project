@@ -1,0 +1,19 @@
+# Build output
+target/
+*.class
+
+# Local secrets — never commit these
+application-local.properties
+.env
+.env.local
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Uploads (user-generated content shouldn't be in source control)
+uploads/
+
+# OS
+.DS_Store
