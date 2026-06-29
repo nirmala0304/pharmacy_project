@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import api from '../api/axiosConfig'
 import ExpiryAlert from '../components/ExpiryAlert'
 
+const BASE_URL = import.meta.env.VITE_API_BASE_URL?.replace('/api', '') || 'http://localhost:8080'
+
 const STATUS_CFG = {
   PENDING:    { color: 'var(--text-3)',   bg: 'var(--surface-2)',      icon: 'bi-hourglass' },
   CONFIRMED:  { color: 'var(--pc-blue)',  bg: 'var(--pc-blue-light)',  icon: 'bi-check-circle' },
@@ -358,7 +360,7 @@ export default function PharmacistDashboard() {
                           </div>
                         ))}
                         {p.notes && <p style={{ fontSize:'0.82rem', color:'var(--text-3)', marginTop:'0.5rem', marginBottom:'0.75rem' }}>{p.notes}</p>}
-                        <a href={p.imagePath?.startsWith('http') ? p.imagePath : `http://localhost:8080${p.imagePath}`}
+                        <a href={p.imagePath?.startsWith('http') ? p.imagePath : `${BASE_URL}${p.imagePath}`}
                           target="_blank" rel="noopener noreferrer"
                           className="btn btn-outline-secondary btn-sm w-100 mb-3 rounded-pill">
                           <i className="bi bi-eye me-1" />View Image
