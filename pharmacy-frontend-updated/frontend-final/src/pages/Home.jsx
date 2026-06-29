@@ -5,7 +5,7 @@ import { useTranslation } from '../hooks/useTranslation'
 import MedicineCard from '../components/MedicineCard'
 
 // Doctor image — uploaded by user, served from /public
-const HERO_DOCTOR_IMG = '/hero-doctor-new.jpg'
+const HERO_DOCTOR_IMG = '/hero-doctor-ai.png'
 
 const CATEGORY_ICONS = {
   default:'bi-grid', tablet:'bi-capsule', capsule:'bi-capsule-pill',
