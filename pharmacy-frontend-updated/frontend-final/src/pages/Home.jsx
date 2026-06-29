@@ -140,7 +140,7 @@ export default function Home() {
             </div>
 
             {/* ── RIGHT: Doctor image ── */}
-            <div className="col-lg-6 col-xl-7 d-none d-lg-flex justify-content-center align-items-end hero-animate-fade">
+            <div className="col-lg-6 col-xl-7 d-flex justify-content-center align-items-end hero-animate-fade">
               <div className="hero-img-area">
 
                 {/* Glow ring */}
@@ -529,7 +529,7 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="col-lg-6 text-center position-relative z-1 d-none d-lg-block pt-5 align-self-end">
+            <div className="col-lg-6 text-center position-relative z-1 d-block pt-5 align-self-end">
               <div className="position-relative mx-auto" style={{ width: '280px', height: '360px', background: '#0f172a', borderRadius: '40px 40px 0 0', border: '10px solid #334155', borderBottom: 'none', boxShadow: '0 -20px 40px rgba(0,0,0,0.2)' }}>
                 <div className="w-100 h-100 rounded-top-4 overflow-hidden position-relative" style={{ background: 'var(--surface-0)' }}>
                   {/* Mockup Screen Content */}
