@@ -83,6 +83,7 @@ public class SecurityConfig {
                 .requestMatchers("/error").permitAll()
                 .requestMatchers("/api/contact/inquiries").permitAll()
                 .requestMatchers("/api/contact/medicine-inquiries").permitAll()
+                .requestMatchers("/api/coupons/**").permitAll()
                 .requestMatchers("/api/pharmacist/**").hasAnyRole("PHARMACIST", "ADMIN")
                 .requestMatchers(org.springframework.http.HttpMethod.GET, "/api/admin/coupons").hasAnyRole("PHARMACIST", "ADMIN")
                 .requestMatchers("/api/admin/**").hasRole("ADMIN")

@@ -35,6 +35,7 @@ export default function Home() {
   const [featuredMedicines, setFeaturedMedicines] = useState([])
   const [categories, setCategories] = useState([])
   const [catLoading, setCatLoading] = useState(true)
+  const [coupons, setCoupons] = useState([])
   const { t } = useTranslation()
 
   useEffect(() => {
@@ -43,6 +44,7 @@ export default function Home() {
     api.get('/categories')
       .then(res => { setCategories(res.data || []); setCatLoading(false) })
       .catch(() => { setCategories([]); setCatLoading(false) })
+    api.get('/coupons/active').then(res => setCoupons(res.data || [])).catch(() => {})
   }, [])
 
   const features = [
@@ -221,6 +223,36 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ── ACTIVE COUPONS ── */}
+      {coupons.length > 0 && (
+        <section className="py-4" style={{ background: 'var(--pc-amber-light)' }}>
+          <div className="container">
+            <div className="d-flex align-items-center justify-content-between mb-3">
+              <h4 className="fw-bold mb-0" style={{ color: 'var(--pc-amber)' }}><i className="bi bi-tag-fill me-2"></i>Special Offers</h4>
+            </div>
+            <div className="row g-3">
+              {coupons.map(coupon => (
+                <div className="col-md-4" key={coupon.id}>
+                  <div className="card border-0 shadow-sm rounded-4 h-100 position-relative overflow-hidden" style={{ background: 'var(--surface-0)' }}>
+                    <div style={{ position: 'absolute', top: '-30px', right: '-30px', width: '100px', height: '100px', background: 'var(--pc-amber)', opacity: 0.1, borderRadius: '50%' }}></div>
+                    <div className="card-body p-4 text-center z-1">
+                      <div className="d-inline-block px-3 py-1 rounded-pill mb-2 fw-bold" style={{ background: 'var(--pc-amber-light)', color: 'var(--pc-amber)', border: '1px dashed var(--pc-amber)', letterSpacing: '1px' }}>
+                        {coupon.code}
+                      </div>
+                      <h3 className="fw-bold mb-2 text-dark">
+                        {coupon.discountType === 'PERCENTAGE' ? `${coupon.discountValue}% OFF` : `$${coupon.discountValue} OFF`}
+                      </h3>
+                      {coupon.description && <p className="text-muted small mb-0">{coupon.description}</p>}
+                      {coupon.minOrderAmount && <p className="text-muted small mb-0 mt-1" style={{ fontSize: '0.75rem' }}>Min order: ${coupon.minOrderAmount}</p>}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ── FEATURES ── */}
       <section className="py-5" style={{ background: 'var(--surface-0)' }}>
