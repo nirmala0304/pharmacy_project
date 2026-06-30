@@ -47,9 +47,19 @@ export default function MedicineCard({ medicine }) {
         )}
       </div>
 
-      {/* Icon */}
-      <div className="med-card__icon-wrap">
-        <i className="bi bi-capsule med-card__icon" />
+      {/* Image */}
+      <div className="med-card__img-wrap" style={{ 
+        width: '100%', 
+        height: '160px', 
+        borderRadius: 'var(--r-md)', 
+        overflow: 'hidden',
+        background: 'var(--surface-1)'
+      }}>
+        <img 
+          src={medicine.imageUrl || '/generic_medicine.png'} 
+          alt={medicine.name} 
+          style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+        />
       </div>
 
       {/* Info */}

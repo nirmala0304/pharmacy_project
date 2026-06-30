@@ -94,9 +94,13 @@ export default function MedicineDetails() {
           {/* Left: Visual panel */}
           <div className="col-md-4">
             <div className="card text-center p-4 p-md-5" style={{ position: 'sticky', top: '80px' }}>
-              <div className="mx-auto mb-4 d-flex align-items-center justify-content-center rounded-3"
-                style={{ width: 100, height: 100, background: 'var(--pc-green-light)' }}>
-                <i className="bi bi-capsule" style={{ fontSize: '3rem', color: 'var(--pc-green)' }} />
+              <div className="mx-auto mb-4 rounded-3 overflow-hidden"
+                style={{ width: 200, height: 200, background: 'var(--surface-1)', border: '1px solid var(--border)' }}>
+                <img 
+                  src={medicine.imageUrl || '/generic_medicine.png'} 
+                  alt={medicine.name} 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                />
               </div>
               <h4 style={{ fontFamily: 'Sora, sans-serif', fontWeight: 800, color: 'var(--text-1)', marginBottom: '0.5rem' }}>
                 {medicine.name}

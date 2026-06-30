@@ -109,10 +109,14 @@ export default function Cart() {
                 <div key={item.cartItemId} className="card">
                   <div className="card-body">
                     <div className="d-flex flex-column flex-sm-row gap-3 align-items-start align-items-sm-center">
-                      {/* Icon */}
-                      <div className="flex-shrink-0 rounded-3 d-flex align-items-center justify-content-center"
-                        style={{ width: 56, height: 56, background: 'var(--pc-green-light)' }}>
-                        <i className="bi bi-capsule" style={{ fontSize: '1.3rem', color: 'var(--pc-green)' }}></i>
+                      {/* Image */}
+                      <div className="flex-shrink-0 rounded-3 overflow-hidden"
+                        style={{ width: 64, height: 64, background: 'var(--surface-1)', border: '1px solid var(--border)' }}>
+                        <img 
+                          src={item.medicineImageUrl || '/generic_medicine.png'} 
+                          alt={item.medicineName} 
+                          style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                        />
                       </div>
 
                       {/* Info */}
