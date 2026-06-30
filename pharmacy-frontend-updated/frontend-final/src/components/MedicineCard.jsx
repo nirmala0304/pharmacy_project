@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import { useCart } from '../context/CartContext'
 import { useState } from 'react'
+import { getMedicineImage } from '../utils/medicineImages'
 
 export default function MedicineCard({ medicine }) {
   const { user } = useAuth()
@@ -56,10 +57,10 @@ export default function MedicineCard({ medicine }) {
         background: 'var(--surface-1)'
       }}>
         <img 
-          src={medicine.imageUrl || '/generic_medicine.png'} 
+          src={getMedicineImage(medicine.name, medicine.categoryName, medicine.imageUrl)} 
           alt={medicine.name} 
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-          onError={(e) => { e.target.onerror = null; e.target.src = '/generic_medicine.png'; }}
+          onError={(e) => { e.target.onerror = null; e.target.src = getMedicineImage(medicine.name, medicine.categoryName, null); }}
         />
       </div>
 

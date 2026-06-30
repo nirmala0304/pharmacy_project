@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
+import { getMedicineImage } from '../utils/medicineImages'
 
 export default function Cart() {
   const { cart, updateQuantity, removeItem, applyCoupon, removeCoupon } = useCart()
@@ -113,10 +114,10 @@ export default function Cart() {
                       <div className="flex-shrink-0 rounded-3 overflow-hidden"
                         style={{ width: 64, height: 64, background: 'var(--surface-1)', border: '1px solid var(--border)' }}>
                         <img 
-                          src={item.medicineImageUrl || '/generic_medicine.png'} 
+                          src={getMedicineImage(item.medicineName, '', item.medicineImageUrl)} 
                           alt={item.medicineName} 
                           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                          onError={(e) => { e.target.onerror = null; e.target.src = '/generic_medicine.png'; }}
+                          onError={(e) => { e.target.onerror = null; e.target.src = getMedicineImage(item.medicineName, '', null); }}
                         />
                       </div>
 

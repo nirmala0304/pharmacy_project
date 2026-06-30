@@ -3,6 +3,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom'
 import api from '../api/axiosConfig'
 import { useAuth } from '../context/AuthContext'
 import { useCart } from '../context/CartContext'
+import { getMedicineImage } from '../utils/medicineImages'
 
 export default function MedicineDetails() {
   const { id } = useParams()
@@ -97,10 +98,10 @@ export default function MedicineDetails() {
               <div className="mx-auto mb-4 rounded-3 overflow-hidden"
                 style={{ width: 200, height: 200, background: 'var(--surface-1)', border: '1px solid var(--border)' }}>
                 <img 
-                  src={medicine.imageUrl || '/generic_medicine.png'} 
+                  src={getMedicineImage(medicine.name, medicine.categoryName, medicine.imageUrl)} 
                   alt={medicine.name} 
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  onError={(e) => { e.target.onerror = null; e.target.src = '/generic_medicine.png'; }}
+                  onError={(e) => { e.target.onerror = null; e.target.src = getMedicineImage(medicine.name, medicine.categoryName, null); }}
                 />
               </div>
               <h4 style={{ fontFamily: 'Sora, sans-serif', fontWeight: 800, color: 'var(--text-1)', marginBottom: '0.5rem' }}>
