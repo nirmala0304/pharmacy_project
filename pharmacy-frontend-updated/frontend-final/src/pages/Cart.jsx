@@ -115,7 +115,8 @@ export default function Cart() {
                         <img 
                           src={item.medicineImageUrl || '/generic_medicine.png'} 
                           alt={item.medicineName} 
-                          style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                          onError={(e) => { e.target.onerror = null; e.target.src = '/generic_medicine.png'; }}
                         />
                       </div>
 

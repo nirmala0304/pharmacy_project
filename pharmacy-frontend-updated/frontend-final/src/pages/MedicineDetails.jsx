@@ -99,7 +99,8 @@ export default function MedicineDetails() {
                 <img 
                   src={medicine.imageUrl || '/generic_medicine.png'} 
                   alt={medicine.name} 
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  onError={(e) => { e.target.onerror = null; e.target.src = '/generic_medicine.png'; }}
                 />
               </div>
               <h4 style={{ fontFamily: 'Sora, sans-serif', fontWeight: 800, color: 'var(--text-1)', marginBottom: '0.5rem' }}>

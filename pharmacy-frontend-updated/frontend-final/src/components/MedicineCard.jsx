@@ -58,7 +58,8 @@ export default function MedicineCard({ medicine }) {
         <img 
           src={medicine.imageUrl || '/generic_medicine.png'} 
           alt={medicine.name} 
-          style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          onError={(e) => { e.target.onerror = null; e.target.src = '/generic_medicine.png'; }}
         />
       </div>
 
