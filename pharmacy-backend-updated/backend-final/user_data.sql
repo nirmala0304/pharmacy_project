@@ -16,7 +16,7 @@ INSERT INTO medicines (name, description, price, stock_quantity, requires_prescr
 -- Antibiotics
 ('Amoxicillin 500mg', 'Broad-spectrum antibiotic for bacterial infections', 85.00, 150, true, 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI_M1Fix66WGzQpL8AlOTIb7gaoN-GPLOLKaf3rQkY1A&s=10', 'amoxicillin-500mg', true),
 ('Azithromycin 250mg', 'Antibiotic for respiratory and skin infections', 120.00, 100, true, 1, 'https://images.apollo247.in/pub/media/catalog/product/A/Z/AZI0919_1_1.jpg', 'azithromycin-250mg', true),
-('Ciprofloxacin 500mg', 'Antibiotic for urinary and gut infections', 95.00, 120, true, 1, 'https://share.google/wuhXeVyWpcOihAQBU', 'ciprofloxacin-500mg', true),
+('Ciprofloxacin 500mg', 'Antibiotic for urinary and gut infections', 95.00, 120, true, 1, 'https://www.dailychemist.com/wp-content/uploads/2020/03/Ciprofloxacin-500mg-Tablets.jpg', 'ciprofloxacin-500mg', true),
 ('Doxycycline 100mg', 'Antibiotic for chest and skin infections', 75.00, 90, true, 1, 'https://res.cloudinary.com/oxford-online-pharmacy/image/upload/f_auto,w_1200/doxycycline-100mg-capsule-50-sovereign.jpg', 'doxycycline-100mg', true),
 
 -- Pain Relief
@@ -57,10 +57,10 @@ INSERT INTO medicines (name, description, price, stock_quantity, requires_prescr
 
 -- Skin Care
 ('Betamethasone Cream', 'Steroid cream for skin inflammation', 75.00, 150, true, 7, 'https://5.imimg.com/data5/YY/LC/MY-8142050/betamethasone-cream.jpg', 'betamethasone-cream', true),
-('Clotrimazole Cream', 'Antifungal creamlosartan-50mg for skin fungal infections', 55.00, 200, false, 7, 'https://onemg.gumlet.io/l_watermark_346,w_480,h_480/a_ignore,w_480,h_480,c_fit,q_auto,f_auto/9a118fe610a84f6faa0759e420c12e1c.jpg', 'clotrimazole-cream', true),
+('Clotrimazole Cream', 'Antifungal cream for skin fungal infections', 55.00, 200, false, 7, 'https://onemg.gumlet.io/l_watermark_346,w_480,h_480/a_ignore,w_480,h_480,c_fit,q_auto,f_auto/9a118fe610a84f6faa0759e420c12e1c.jpg', 'clotrimazole-cream', true),
 ('Mupirocin Ointment', 'Antibiotic ointment for skin infections', 85.00, 120, true, 7, 'https://images.apollo247.in/pub/media/catalog/product/M/U/MUP0018_1_1.jpg?tr=q-80,f-webp,w-400,dpr-3,c-at_max%20400w', 'mupirocin-ointment', true),
 ('Calamine Lotion', 'Soothing lotion for itching and rashes', 40.00, 250, false, 7, 'https://m.media-amazon.com/images/I/61LdpOpEpGL.jpg', 'calamine-lotion', true),
-('Ketoconazole Shampoo', 'Antifungal shampoooseltamivir-75mg for dandruff', 120.00, 180, false, 7, 'https://ecommerce.genericartmedicine.com/images/products/product-photo-455.jpg', 'ketoconazole-shampoo', true),
+('Ketoconazole Shampoo', 'Antifungal shampoo for dandruff', 120.00, 180, false, 7, 'https://ecommerce.genericartmedicine.com/images/products/product-photo-455.jpg', 'ketoconazole-shampoo', true),
 
 -- Digestive Health
 ('Omeprazole 20mg', 'Proton pump inhibitor for acidity and ulcers', 45.00, 350, false, 8, 'https://www.dailychemist.com/wp-content/uploads/2018/02/Omeprazole-20mg-Capsules.jpg', 'omeprazole-20mg', true),
