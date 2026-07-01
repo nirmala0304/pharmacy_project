@@ -46,6 +46,9 @@ public class Medicine {
     @Column(name = "image_url")
     private String imageUrl;
 
+    @Column(name = "url")
+    private String url;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private Category category;
@@ -92,6 +95,9 @@ public class Medicine {
 
     public String getImageUrl() { return imageUrl; }
     public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
+
+    public String getUrl() { return url; }
+    public void setUrl(String url) { this.url = url; }
 
     public Category getCategory() { return category; }
     public void setCategory(Category category) { this.category = category; }

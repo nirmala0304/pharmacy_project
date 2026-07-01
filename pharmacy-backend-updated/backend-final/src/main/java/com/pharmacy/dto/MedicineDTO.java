@@ -17,6 +17,7 @@ public class MedicineDTO {
     private LocalDate expiryDate;
     private boolean requiresPrescription;
     private String imageUrl;
+    private String url;
     private Long categoryId;
     private String categoryName;
     private boolean isActive;
@@ -60,6 +61,9 @@ public class MedicineDTO {
 
     public String getImageUrl() { return imageUrl; }
     public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
+
+    public String getUrl() { return url; }
+    public void setUrl(String url) { this.url = url; }
 
     public Long getCategoryId() { return categoryId; }
     public void setCategoryId(Long categoryId) { this.categoryId = categoryId; }

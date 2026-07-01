@@ -153,6 +153,7 @@ public class MedicineService {
         dto.setExpiryDate(m.getExpiryDate());
         dto.setRequiresPrescription(m.isRequiresPrescription());
         dto.setImageUrl(m.getImageUrl());
+        dto.setUrl(m.getUrl());
         dto.setActive(m.isActive());
         if (m.getCategory() != null) {
             dto.setCategoryId(m.getCategory().getId());
@@ -174,6 +175,7 @@ public class MedicineService {
         medicine.setExpiryDate(dto.getExpiryDate());
         medicine.setRequiresPrescription(dto.isRequiresPrescription());
         medicine.setImageUrl(dto.getImageUrl());
+        medicine.setUrl(dto.getUrl());
         medicine.setActive(true);
         if (dto.getCategoryId() != null) {
             categoryRepository.findById(dto.getCategoryId()).ifPresent(medicine::setCategory);
