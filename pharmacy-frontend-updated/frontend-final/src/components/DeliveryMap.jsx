@@ -160,7 +160,7 @@ export default function DeliveryMap({ deliveryLocation, currentLocation, estimat
           <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#22c55e',
             boxShadow: '0 0 0 2px #bbf7d0', display: 'inline-block',
             animation: 'pulseDot 1.8s ease-in-out infinite' }} />
-          Live Delivery Tracking
+          dummy Delivery Tracking
         </span>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
           {estimatedTime && (

@@ -106,7 +106,7 @@
     "viewDetails": "View Details",
     "noOrders": "No orders yet",
     "trackOrder": "Track Order",
-    "deliveryTracking": "Live Delivery Tracking",
+    "deliveryTracking": "dummy Delivery Tracking",
     "mapNotInstalled": "Live map tracking requires Leaflet.js",
     "mapInstallInstructions": "Install with: npm install leaflet",
     "mapError": "Failed to load map",
