@@ -15,7 +15,7 @@ INSERT INTO medicines (name, description, price, stock_quantity, requires_prescr
 
 -- Antibiotics
 ('Amoxicillin 500mg', 'Broad-spectrum antibiotic for bacterial infections', 85.00, 150, true, 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI_M1Fix66WGzQpL8AlOTIb7gaoN-GPLOLKaf3rQkY1A&s=10', 'amoxicillin-500mg', true),
-('Azithromycin 250mg', 'Antibiotic for respiratory and skin infections', 120.00, 100, true, 1, 'https://loremflickr.com/300/200/medicine,pill?lock=5714', 'azithromycin-250mg', true),
+('Azithromycin 250mg', 'Antibiotic for respiratory and skin infections', 120.00, 100, true, 1, 'https://images.apollo247.in/pub/media/catalog/product/A/Z/AZI0919_1_1.jpg', 'azithromycin-250mg', true),
 ('Ciprofloxacin 500mg', 'Antibiotic for urinary and gut infections', 95.00, 120, true, 1, 'https://loremflickr.com/300/200/medicine,pill?lock=2420', 'ciprofloxacin-500mg', true),
 ('Doxycycline 100mg', 'Antibiotic for chest and skin infections', 75.00, 90, true, 1, 'https://loremflickr.com/300/200/medicine,pill?lock=4016', 'doxycycline-100mg', true),
 
