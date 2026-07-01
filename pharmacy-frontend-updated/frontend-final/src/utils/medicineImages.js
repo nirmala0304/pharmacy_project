@@ -1,5 +1,5 @@
 export function getMedicineImage(medicineName, medicineCategory, imageUrl) {
-  if (imageUrl && imageUrl.trim() !== '') return imageUrl;
+  if (imageUrl && imageUrl.trim() !== '' && imageUrl !== 'placeholder.jpg') return imageUrl;
 
   const name = (medicineName || '').toLowerCase();
   const cat = (medicineCategory || '').toLowerCase();

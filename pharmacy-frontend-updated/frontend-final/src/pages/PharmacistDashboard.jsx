@@ -120,6 +120,10 @@ export default function PharmacistDashboard() {
     stockQuantity:'', minStockLevel:'', expiryDate:'', requiresPrescription:false, categoryId:'' })
   const [addLoading, setAddLoading] = useState(false)
   const [addMsg, setAddMsg] = useState('')
+  const [imageUploadTarget, setImageUploadTarget] = useState(null)
+  const [imageFile, setImageFile] = useState(null)
+  const [imageUploadLoading, setImageUploadLoading] = useState(false)
+  const [imageUploadMsg, setImageUploadMsg] = useState('')
   // Coupon management state
   const [coupons, setCoupons] = useState([])
   const [couponForm, setCouponForm] = useState({ code:'', discountType:'PERCENTAGE', discountValue:'', minOrderAmount:'', maxDiscountAmount:'', expiryDate:'', description:'' })
@@ -214,6 +218,26 @@ export default function PharmacistDashboard() {
       fetchAll(); setTimeout(() => { setShowAddForm(false); setAddMsg('') }, 1200)
     } catch { setAddMsg('Failed to add medicine.') }
     finally { setAddLoading(false) }
+  }
+
+  const handleImageUpload = async e => {
+    e.preventDefault();
+    if (!imageFile) { setImageUploadMsg('Please select a file.'); return; }
+    setImageUploadLoading(true);
+    const formData = new FormData();
+    formData.append('file', imageFile);
+    try {
+      await api.post(`/medicines/${imageUploadTarget.id}/image`, formData, {
+        headers: { 'Content-Type': 'multipart/form-data' }
+      });
+      setImageUploadMsg('Image uploaded successfully!');
+      fetchAll();
+      setTimeout(() => { setImageUploadTarget(null); setImageUploadMsg(''); setImageFile(null); }, 1200);
+    } catch {
+      setImageUploadMsg('Failed to upload image.');
+    } finally {
+      setImageUploadLoading(false);
+    }
   }
 
   const tabs = [
@@ -519,6 +543,11 @@ export default function PharmacistDashboard() {
                                   onClick={() => openEdit(m)}>
                                   <i className="bi bi-pencil" />
                                 </button>
+                                <button className="btn btn-sm" title="Upload Image"
+                                  style={{ background:'var(--pc-teal-light)', color:'var(--pc-teal)', border:'none', borderRadius:'var(--r-sm)', padding:'0.25rem 0.5rem' }}
+                                  onClick={() => { setImageUploadTarget(m); setImageUploadMsg(''); setImageFile(null); }}>
+                                  <i className="bi bi-image" />
+                                </button>
                                 <button className="btn btn-sm" title="Delete"
                                   style={{ background:'var(--pc-red-light)', color:'var(--pc-red)', border:'none', borderRadius:'var(--r-sm)', padding:'0.25rem 0.5rem' }}
                                   onClick={() => setDeleteTarget(m)}>
@@ -731,6 +760,27 @@ export default function PharmacistDashboard() {
               <button type="button" className="btn btn-outline-secondary rounded-pill px-4" onClick={() => setEditMedicine(null)}>Cancel</button>
               <button type="submit" className="btn btn-primary rounded-pill px-4" disabled={editLoading}>
                 {editLoading ? <><span className="spinner-border spinner-border-sm me-2" />Saving…</> : <><i className="bi bi-check2 me-1" />Save Changes</>}
+              </button>
+            </div>
+          </form>
+        </Modal>
+      )}
+
+      {/* ── Image Upload Modal ── */}
+      {imageUploadTarget && (
+        <Modal title="Upload Medicine Image" icon="bi-image" iconColor="var(--pc-teal)" iconBg="var(--pc-teal-light)"
+          onClose={() => setImageUploadTarget(null)}>
+          {imageUploadMsg && <div className={`alert ${imageUploadMsg.includes('successfully') ? 'alert-success' : 'alert-danger'} mb-3`}>{imageUploadMsg}</div>}
+          <form onSubmit={handleImageUpload}>
+            <div className="mb-3">
+              <label className="form-label">Select Image File (JPG, PNG, WEBP)</label>
+              <input type="file" className="form-control" accept=".jpg,.jpeg,.png,.webp"
+                onChange={e => setImageFile(e.target.files[0])} required />
+            </div>
+            <div className="d-flex gap-2 justify-content-end mt-4">
+              <button type="button" className="btn btn-outline-secondary rounded-pill px-4" onClick={() => setImageUploadTarget(null)}>Cancel</button>
+              <button type="submit" className="btn btn-primary rounded-pill px-4" disabled={imageUploadLoading}>
+                {imageUploadLoading ? <><span className="spinner-border spinner-border-sm me-2" />Uploading…</> : <><i className="bi bi-upload me-1" />Upload Image</>}
               </button>
             </div>
           </form>
