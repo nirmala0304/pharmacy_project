@@ -2,14 +2,14 @@ TRUNCATE TABLE categories RESTART IDENTITY CASCADE;
 TRUNCATE TABLE medicines RESTART IDENTITY CASCADE;
 
 INSERT INTO categories (name, description) VALUES
-('Antibiotics', 'Medicines that kill or inhibit bacteria', 'antibiotics'),
-('Pain Relief', 'Analgesics and anti-inflammatory medicines', 'pain-relief'),
-('Vitamins & Supplements', 'Nutritional supplements and vitamins', 'vitamins-supplements'),
-('Diabetes Care', 'Medicines for blood sugar management', 'diabetes-care'),
-('Heart & BP', 'Cardiovascular and blood pressure medicines', 'heart-bp'),
-('Cold & Flu', 'Medicines for cold, cough and fever', 'cold-flu'),
-('Skin Care', 'Dermatological medicines and creams', 'skin-care'),
-('Digestive Health', 'Medicines for stomach and digestion', 'digestive-health');
+('Antibiotics', 'Medicines that kill or inhibit bacteria'),
+('Pain Relief', 'Analgesics and anti-inflammatory medicines'),
+('Vitamins & Supplements', 'Nutritional supplements and vitamins'),
+('Diabetes Care', 'Medicines for blood sugar management'),
+('Heart & BP', 'Cardiovascular and blood pressure medicines'),
+('Cold & Flu', 'Medicines for cold, cough and fever'),
+('Skin Care', 'Dermatological medicines and creams'),
+('Digestive Health', 'Medicines for stomach and digestion');
 
 INSERT INTO medicines (name, description, price, stock_quantity, requires_prescription, category_id, image_url, url) VALUES
 
