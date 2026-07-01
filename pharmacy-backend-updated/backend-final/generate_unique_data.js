@@ -70,7 +70,7 @@ categoriesData.forEach(cat => {
         
         sql += `INSERT INTO medicines (name, brand, description, dosage, price, stock_quantity, min_stock_level, expiry_date, requires_prescription, image_url, category_id, is_active, discount_percentage)
 VALUES (
-    '${medName}', '${brand}', '${description}', 'Standard', ${price}, ${stock}, 20, '2028-12-31', ${requiresPrescription}, 'https://placehold.co/300x200?text=${encodeURIComponent(medName)}', (SELECT id FROM categories WHERE name = '${cat.name}'), true, 0
+    '${medName}', '${brand}', '${description}', 'Standard', ${price}, ${stock}, 20, '2028-12-31', ${requiresPrescription}, 'https://ui-avatars.com/api/?name=${encodeURIComponent(medName)}&background=random&color=fff&size=300', (SELECT id FROM categories WHERE name = '${cat.name}'), true, 0
 );\n`;
     });
 });
