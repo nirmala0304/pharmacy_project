@@ -13,6 +13,14 @@ const categories = [
     { name: 'Diabetes Care', prefix: ['Metformin', 'Glipizide', 'Sitagliptin', 'Empagliflozin', 'Insulin Glargine'], suffix: ['500mg', '1000mg', 'XR', 'Pen', 'Vial'] }
 ];
 
+const getLockId = (name) => {
+    let hash = 0;
+    for (let i = 0; i < name.length; i++) {
+        hash = name.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    return Math.abs(hash) % 10000;
+};
+
 let sql = '';
 
 sql += 'TRUNCATE TABLE categories CASCADE;\n';
@@ -44,10 +52,11 @@ categories.forEach(cat => {
         let price = (Math.random() * 40 + 2).toFixed(2);
         let stock = Math.floor(Math.random() * 300) + 20;
         let requiresPrescription = Math.random() > 0.7 ? 'true' : 'false';
+        let lockId = getLockId(medName);
         
         sql += `INSERT INTO medicines (name, brand, description, dosage, price, stock_quantity, min_stock_level, expiry_date, requires_prescription, image_url, category_id, is_active, discount_percentage)
 VALUES (
-    '${medName}', '${brand}', 'Detailed description for ${medName}', '250mg', ${price}, ${stock}, 20, '2027-10-31', ${requiresPrescription}, 'https://ui-avatars.com/api/?name=${encodeURIComponent(medName)}&background=random&color=fff&size=300', (SELECT id FROM categories WHERE name = '${cat.name}'), true, 0
+    '${medName}', '${brand}', 'Detailed description for ${medName}', '250mg', ${price}, ${stock}, 20, '2027-10-31', ${requiresPrescription}, 'https://loremflickr.com/300/200/medicine?lock=${lockId}', (SELECT id FROM categories WHERE name = '${cat.name}'), true, 0
 );\n`;
     }
 });
